@@ -1,0 +1,9 @@
+<p>
+  parent works!
+</p><h1>Input and output</h1>
+<h2>Parent app componet</h2>
+<label>Enter the parent app component value</label>
+<input type="text" #ptext (click)="0">
+<p>Value from child component is {{childData}}</p>
+<app-list (childEvent)="childData=$event" [parentData]="ptext.value"></app-list>
+

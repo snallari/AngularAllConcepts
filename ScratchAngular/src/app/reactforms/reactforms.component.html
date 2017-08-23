@@ -1,0 +1,34 @@
+<div class="container">
+	<h1>User Data</h1>
+	<form [formGroup]="usersform" (ngSubmit)="onSubmit()">
+		<div class="form group">
+			<label>Name</label> <br> <input type="text" #refName
+				class="form-control" formControlName="name">
+			<div *ngIf="usersform.controls['name'].hasError('required')">
+				Please enter a name</div>
+			<div *ngIf="usersform.controls['name'].hasError('minlength')">
+				Please enter atleast 4 characters</div>
+			<div *ngIf="usersform.controls['name'].hasError('maxlength')">
+				Please enter max 10 charaters</div>
+		</div>
+		<div class="form group">
+			<label>Email</label> <br> <input type="text"
+				class="form-control" formControlName="email">
+		</div>
+		<div formGroupName="address">
+			<div class=" formgroup">
+				<label>City</label> <br> <input type="text"
+					class="form-control" formControlName="address">
+			</div>
+			<div class="form group">
+				<label>PostalCode</label> <br> <input type="text"
+					class="form-control" formControlName="postalcode">
+				<div *ngIf="usersform.controls['address'].hasError('pattern')">
+					Please enter 5 digits</div>
+
+
+			</div>
+		</div>
+		<button type="submit">Submit</button>
+	</form>
+</div>
